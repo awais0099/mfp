@@ -7,20 +7,21 @@ export default () => {
     const history = useHistory();
 
     useEffect(() => {
-        const { onParentNavigate } = mount(ref.current, {
-            initialPath: history.location.pathname,
-            onNavigate: (location) => {
-                console.log('The container noticed navigation in AuthApp.');
-                const { pathname } =  history.location;
-                if (pathname != location.pathname) {
-                    history.push(location.pathname);
-                }
-            },
-            onSignIn: () => {
-                console.log('User signed in');
-            },
-
-        });
+        const { onParentNavigate } = mount(ref.current, 
+            {
+                initialPath: history.location.pathname,
+                onNavigate: (location) => {
+                    console.log('The container noticed navigation in AuthApp.');
+                    const { pathname } =  history.location;
+                    if (pathname != location.pathname) {
+                        history.push(location.pathname);
+                    }
+                },
+                onSignIn: () => {
+                    console.log('User signed in');
+                },
+            }
+        );
 
         history.listen(onParentNavigate);
     }, []);

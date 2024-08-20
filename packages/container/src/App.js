@@ -5,7 +5,7 @@ import { StylesProvider, createGenerateClassName } from "@material-ui/core";
 import Header from './components/Header';
 import Progress from "./components/Progress";
 const MarketingLazy = lazy(() => import('./components/Marketing'));
-const AuthLazy = (() => import('./components/AuthApp'));
+const AuthLazy = lazy(() => import('./components/AuthApp'));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'con'
