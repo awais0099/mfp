@@ -2,11 +2,13 @@ import { mount } from 'auth/AuthApp';
 import React, { useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+export default ({onSignIn}) => {
     const ref = useRef(null);
     const history = useHistory();
 
     useEffect(() => {
+        console.log('Auth app loaded **');
+
         const { onParentNavigate } = mount(ref.current, 
             {
                 initialPath: history.location.pathname,
@@ -19,6 +21,7 @@ export default () => {
                 },
                 onSignIn: () => {
                     console.log('User signed in');
+                    onSignIn();
                 },
             }
         );
