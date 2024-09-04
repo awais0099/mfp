@@ -7,9 +7,9 @@ export default ({onSignIn}) => {
     const history = useHistory();
 
     useEffect(() => {
-        console.log('Auth app loaded **');
+        console.log('Container Auth comp app loaded **');
 
-        const { onParentNavigate } = mount(ref.current, 
+        const {onParentNavigate} = mount(ref.current, 
             {
                 initialPath: history.location.pathname,
                 onNavigate: (location) => {
@@ -25,7 +25,7 @@ export default ({onSignIn}) => {
                 },
             }
         );
-
+        // console.log("authcomp ", authcomp);
         history.listen(onParentNavigate);
     }, []);
 
